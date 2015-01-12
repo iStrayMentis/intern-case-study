@@ -1,5 +1,7 @@
 package net.peakgames.pisti;
 
+import net.peakgames.pisti.utilities.ShuffleHelper;
+
 import java.util.Stack;
 
 public class Game {
@@ -80,12 +82,16 @@ public class Game {
         }
     }
 
-    //TODO Kaan
+
     private void shuffleBots(Bot[] bots) {
+        ShuffleHelper.shuffle(bots);
     }
 
-    //TODO Kaan
+
     private Deck createDeck() {
-        return null;
+        Deck d = new Deck();
+        d.shuffle();
+        return d;
+
     }
 }
