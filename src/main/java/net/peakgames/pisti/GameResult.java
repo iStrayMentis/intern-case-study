@@ -51,4 +51,13 @@ public class GameResult {
         }
         return sb.toString();
     }
+
+    public String getWinnerName() {
+        for(BotWrapper wrapper : bots) {
+            if (isWinner(wrapper)) {
+                return wrapper.getBotName();
+            }
+        }
+        throw new IllegalStateException("en az bir winner olmali.");
+    }
 }

@@ -1,6 +1,7 @@
 package net.peakgames.pisti;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BotWrapper implements Bot {
@@ -17,13 +18,13 @@ public class BotWrapper implements Bot {
 
     @Override
     public void gameStarted(int seat, List<Card> discardPile) {
-        bot.gameStarted(seat, discardPile);
+        bot.gameStarted(seat, new ArrayList<Card>(discardPile));
     }
 
     @Override
     public void dealed(List<Card> hand) {
         this.hand = hand;
-        bot.dealed(hand);
+        bot.dealed(new ArrayList<Card>(this.hand));
     }
 
     @Override
@@ -37,6 +38,7 @@ public class BotWrapper implements Bot {
         if ( ! hand.contains(card)) {
             throw new RuntimeException("Bir akilli sen misin? Cakaaal.");
         }
+        hand.remove(card);
         return card;
     }
 
@@ -64,5 +66,9 @@ public class BotWrapper implements Bot {
 
     public String scoreWithBotName() {
         return this.bot.getClass().getName() + " (" + seat + ") : " + this.score;
+    }
+
+    public String getBotName() {
+        return this.bot.getClass().getName();
     }
 }

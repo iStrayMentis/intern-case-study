@@ -130,4 +130,16 @@ public class GameTest {
         assertTrue(game.shouldCollect(discardPile, deck, 1));
     }
 
+    @Test
+    public void test_game_play() {
+        Bot [] bots = new Bot[4];
+        bots[0] = new SuperDummyBot();
+        bots[1] = new SuperDummyBot();
+        bots[2] = new SuperDummyBot();
+        bots[3] = new SuperDummyBot();
+        Game game = new Game(bots);
+        GameResult gameResult = game.executeGame();
+        System.out.println(gameResult);
+    }
+
 }
