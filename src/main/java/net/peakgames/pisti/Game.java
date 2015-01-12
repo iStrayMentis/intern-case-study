@@ -40,10 +40,9 @@ public class Game {
                 if (shouldCollect(discardPile)) {
                     broadcastCollectedEvent(bot.getSeat(), discardPile);
 
-                    //TODO ilkin
                     int score = ScoreHelper.calculate(discardPile);
                     bot.addScore(score);
-
+                    //TODO majority of cards 3 points.
                     discardPile.clear();
                 }
 

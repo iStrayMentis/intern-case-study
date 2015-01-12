@@ -1,12 +1,16 @@
 package net.peakgames.pisti;
 
 public class Card {
+    public static final int ACE = 1;
+    public static final int JACK = 11;
+    public static final int QUEEN = 12;
+    public static final int KING = 13;
     public static enum Type {
         SPADES, HEARTS, DIAMONDS, CLUBS
     }
 
-    private Type type;
-    private int value;
+    private final Type type;
+    private final int value;
 
     private Card(Type type, int value) {
         if (type == null) throw new IllegalArgumentException("A card must have an type!");
@@ -26,6 +30,14 @@ public class Card {
         return value;
     }
 
+    public boolean isJack() {
+        return value == JACK;
+    }
+
+    public boolean isAce() {
+        return value == ACE;
+    }
+    
     @Override
     public String toString() {
         return "Card{" +
