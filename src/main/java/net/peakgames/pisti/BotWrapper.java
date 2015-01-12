@@ -6,6 +6,8 @@ import java.util.List;
 public class BotWrapper implements Bot {
     private Bot bot;
     private int seat;
+    private int score = 0;
+
     private List<Card> hand;
 
     public BotWrapper(int seat, Bot bot) {
@@ -52,7 +54,15 @@ public class BotWrapper implements Bot {
         return seat;
     }
 
-    public void addScore(int score) {
+    public int getScore() {
+        return score;
+    }
 
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public String scoreWithBotName() {
+        return this.bot.getClass().getName() + " (" + seat + ") : " + this.score;
     }
 }

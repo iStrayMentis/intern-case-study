@@ -58,8 +58,8 @@ public class Game {
             }
             turnCount++;
         }
-        // TODO Hakan
-        return null;
+
+        return new GameResult(bots);
     }
 
     private void dealCardsIfNecessary(Deck deck, int turnCount) {
