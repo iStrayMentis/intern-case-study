@@ -5,12 +5,21 @@ import net.peakgames.pisti.utilities.ShuffleHelper;
 import java.util.Stack;
 
 public class Game {
+
+    public static final int NUM_SEATS = 4;
+    public static final int NUM_DRAW_CARDS = 4;
+
+
     private BotWrapper[] bots;
 
+    Game() {
+
+    }
+
     public Game(Bot[] bots) {
-        this.bots = new BotWrapper[4];
+        this.bots = new BotWrapper[NUM_SEATS];
         shuffleBots(bots);
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < NUM_SEATS; i++) {
             this.bots[i] = new BotWrapper(i, bots[i]);
         }
     }
@@ -20,7 +29,7 @@ public class Game {
         Stack<Card> discardPile = new Stack<Card>();
 
         //yere 4 kart ayirdik
-        discardPile.addAll(deck.drawCard(4));
+        discardPile.addAll(deck.drawCard(NUM_DRAW_CARDS));
 
         for (BotWrapper bot : bots) {
             bot.gameStarted(discardPile);
@@ -37,7 +46,7 @@ public class Game {
                 discardPile.push(card);
                 broadcastCardPlay(bot.getSeat(), card);
 
-                if (shouldCollect(discardPile)) {
+                if (shouldCollect(discardPile, deck, bot.getSeat())) {
                     broadcastCollectedEvent(bot.getSeat(), discardPile);
 
                     int score = ScoreHelper.calculate(discardPile);
@@ -54,14 +63,14 @@ public class Game {
     }
 
     private void dealCardsIfNecessary(Deck deck, int turnCount) {
-        if ((turnCount % 4) == 0) {
+        if ((turnCount % NUM_SEATS) == 0) {
             dealCards(deck);
         }
     }
 
     private void dealCards(Deck deck) {
         for (Bot bot : bots) {
-            bot.dealed(deck.drawCard(4));
+            bot.dealed(deck.drawCard(NUM_DRAW_CARDS));
         }
     }
 
@@ -71,8 +80,30 @@ public class Game {
         }
     }
 
-    //TODO Hakan
-    private boolean shouldCollect(Stack<Card> discardPile) {
+    boolean shouldCollect(Stack<Card> discardPile, Deck deck, int seat) {
+
+        if(discardPile == null || deck == null || seat >= NUM_SEATS) {
+            return false;
+        }
+
+        if(discardPile.size() <= 1) {
+            return false;
+        }
+
+        if(deck.isEmpty() && seat == NUM_SEATS-1) {
+            return true;
+        }
+
+        Card lastDiscardCard = discardPile.peek();
+        if(lastDiscardCard.isJack()) {
+            return true;
+        }
+
+        Card beforeDiscardCard = discardPile.get(discardPile.size()-2);
+        if(lastDiscardCard.equals(beforeDiscardCard)) {
+            return true;
+        }
+
         return false;
     }
 
