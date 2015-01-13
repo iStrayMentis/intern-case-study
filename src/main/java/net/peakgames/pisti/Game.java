@@ -100,7 +100,7 @@ public class Game {
         }
 
         Card beforeDiscardCard = discardPile.get(discardPile.size()-2);
-        if(lastDiscardCard.equals(beforeDiscardCard)) {
+        if(lastDiscardCard.getValue() == beforeDiscardCard.getValue()) {
             return true;
         }
 
