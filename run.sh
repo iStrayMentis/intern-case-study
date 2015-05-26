@@ -4,8 +4,8 @@ mvn clean compile exec:java \
     -Dexec.args="\
     1 \
     10 \
-    net.peakgames.pisti.SmartBot \
+    net.peakgames.pisti.SuperDummyBot \
     net.peakgames.pisti.SuperDummyBot\
-    net.peakgames.pisti.SmartBot \
+    net.peakgames.pisti.SuperDummyBot \
     net.peakgames.pisti.SuperDummyBot\
     "

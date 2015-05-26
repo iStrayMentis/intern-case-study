@@ -68,7 +68,12 @@ public class PistiBootstrap {
     }
 
     private static void printUsage() {
-        //TODO Print the usage
-        System.out.println("Usage : ");
+        System.out.println("You should enter these parameters: \n" +
+                "\t\tConcurrent Game Count\n" +
+                "\t\tTotal Game Count\n" +
+                "\t\tClassName of Bot 1\n" +
+                "\t\tClassName of Bot 2\n" +
+                "\t\tClassName of Bot 3\n" +
+                "\t\tClassName of Bot 4");
     }
 }
