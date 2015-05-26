@@ -8,7 +8,7 @@ import java.util.List;
  * Bot interface defines the protocol of a concrete Bot that will be used by Game.
  *
  * @see net.peakgames.pisti.deck.Card
- * @see net.peakgames.pisti.bot.SUperDummyBot
+ * @see net.peakgames.pisti.bot.DummyBot
  *
  * @author Peak Games
  */

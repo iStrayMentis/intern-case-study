@@ -1,11 +1,10 @@
 package net.peakgames.pisti.game;
 
 import net.peakgames.pisti.bot.Bot;
-import net.peakgames.pisti.bot.SuperDummyBot;
+import net.peakgames.pisti.bot.DummyBot;
+import net.peakgames.pisti.bot.RandomBot;
 import net.peakgames.pisti.deck.Card;
 import net.peakgames.pisti.deck.Deck;
-import net.peakgames.pisti.game.Game;
-import net.peakgames.pisti.game.GameResult;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -138,10 +137,10 @@ public class GameTest {
     @Test
     public void gamePlay() {
         Bot[] bots = new Bot[4];
-        bots[0] = new SuperDummyBot();
-        bots[1] = new SuperDummyBot();
-        bots[2] = new SuperDummyBot();
-        bots[3] = new SuperDummyBot();
+        bots[0] = new DummyBot();
+        bots[1] = new RandomBot();
+        bots[2] = new DummyBot();
+        bots[3] = new RandomBot();
         Game game = new Game(bots);
         GameResult gameResult = game.executeGame();
         System.out.println(gameResult);

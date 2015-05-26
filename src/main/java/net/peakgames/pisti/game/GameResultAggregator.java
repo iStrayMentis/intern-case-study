@@ -28,6 +28,6 @@ public class GameResultAggregator {
 
     @Override
     public String toString() {
-        return results.toString();
+        return "\n\n" + results.toString();
     }
 }

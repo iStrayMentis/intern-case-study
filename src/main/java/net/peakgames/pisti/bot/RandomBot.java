@@ -2,9 +2,10 @@ package net.peakgames.pisti.bot;
 
 import net.peakgames.pisti.deck.Card;
 
-import java.util.List;
+import java.util.*;
 
-public class SuperDummyBot implements Bot  {
+public class RandomBot implements Bot {
+
     private List<Card> hand;
 
     @Override
@@ -24,11 +25,13 @@ public class SuperDummyBot implements Bot  {
 
     @Override
     public Card play() {
-        return hand.remove(0);
+        Random r = new Random();
+        return hand.remove(r.nextInt(hand.size()));
     }
 
     @Override
     public void collected(int seat, List<Card> cards) {
 
     }
+
 }
