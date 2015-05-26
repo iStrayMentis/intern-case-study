@@ -23,7 +23,12 @@ public class ScoreHelper {
             Card card1 = cards.pop();
             Card card2 = cards.pop();
             if (card1.getValue() == card2.getValue()) {
-                return 10;
+                if(card1.isJack()) {
+                    return 20;
+                }
+                else {
+                    return 10;
+                }
             }
         }
 

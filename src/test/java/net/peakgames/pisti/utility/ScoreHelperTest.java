@@ -68,7 +68,7 @@ public class ScoreHelperTest {
         cards = new Stack<Card>();
         cards.push(Card.newCard(Card.Type.DIAMONDS, Card.JACK));
         cards.push(Card.newCard(Card.Type.CLUBS, Card.JACK));
-        assertEquals(10, ScoreHelper.calculate(cards));
+        assertEquals(20, ScoreHelper.calculate(cards));
     }
 
 }
