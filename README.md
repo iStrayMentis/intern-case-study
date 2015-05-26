@@ -29,10 +29,12 @@
 
 #### Scoring
 
-| Each Jack         | 1 point |
-| Each Ace          | 1 point |
-| Each Clubs        | 2 points |
-| Each Diamonds     | 3 points |
+| Type              | Score     |
+|-------------------|-----------|
+| Each Jack         | 1 point   |
+| Each Ace          | 1 point   |
+| Each Clubs        | 2 points  |
+| Each Diamonds     | 3 points  |
 | Each Pisti        | 10 points |
 | Each Jack Pisti   | 20 points |
 
@@ -58,11 +60,16 @@
 
 ## Expectations
 
-* You are going to work within a team.
+### Case Study
+
+* You are going to work within a team for 2 hours.
 * [Clone](github-mac://openRepo/https://github.com/peakgames/intern-case-study) or [Download](https://github.com/peakgames/intern-case-study/archive/master.zip) the source code of the application into your local environment.
-* Review the existing code base of the application.
 * Compile and run the application with your preferred development environment or existing run scripts (see above section).
-* Create and introduce a new bot into the application which conforms the [BOT](https://github.com/peakgames/intern-case-study/blob/master/src/main/java/net/peakgames/pisti/bot/Bot.java) interface. (Your bot should be one single class)
+* Review the existing code base of the application.
+* Create and introduce a new bot into the application which conforms the [Bot](https://github.com/peakgames/intern-case-study/blob/master/src/main/java/net/peakgames/pisti/bot/Bot.java) interface. (Your bot should be one single class)
 * You are not allowed to make any change on the existing code base other than your bot.
+
+
+### Case Assessment
 * Your bot will play the game with other group's bots.
-* Explain your implementation of bot and your understanding of the application.
+* Explain your implementation of bot and your understanding of the application for 5-10 minutes.
