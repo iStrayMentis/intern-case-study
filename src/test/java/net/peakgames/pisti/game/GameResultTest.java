@@ -1,8 +1,6 @@
 package net.peakgames.pisti.game;
 
-import net.peakgames.pisti.bot.BotDecorator;
 import net.peakgames.pisti.bot.DummyBot;
-import net.peakgames.pisti.game.GameResult;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -5,7 +5,6 @@ import java.util.Stack;
 import net.peakgames.pisti.deck.Card;
 import net.peakgames.pisti.deck.Deck;
 import net.peakgames.pisti.bot.Bot;
-import net.peakgames.pisti.bot.BotDecorator;
 import net.peakgames.pisti.utility.ScoreHelper;
 import net.peakgames.pisti.utility.ShuffleHelper;
 
@@ -13,7 +12,7 @@ import net.peakgames.pisti.utility.ShuffleHelper;
  * Plays the game, deals cards, calls bots to play a card, calculates who collects and scores.
  *
  * @see net.peakgames.pisti.deck.Deck
- * @see net.peakgames.pisti.bot.BotDecorator
+ * @see BotDecorator
  * @see net.peakgames.pisti.utility.ScoreHelper;
  *
  * @author Peak Games

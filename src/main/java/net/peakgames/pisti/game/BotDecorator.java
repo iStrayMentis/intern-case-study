@@ -1,10 +1,18 @@
-package net.peakgames.pisti.bot;
+package net.peakgames.pisti.game;
 
+import net.peakgames.pisti.bot.Bot;
 import net.peakgames.pisti.deck.Card;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Some extensions and safety checks for bot.
+ *
+ * @see net.peakgames.pisti.bot.Bot
+ *
+ * @author Peak Games
+ */
 public class BotDecorator implements Bot {
 
     private Bot bot;
@@ -29,18 +37,18 @@ public class BotDecorator implements Bot {
     }
 
     @Override
-    public void played(int seat, Card card) {
-        bot.played(seat, card);
-    }
-
-    @Override
     public Card play() {
         Card card = bot.play();
-        if ( ! hand.contains(card)) {
-            throw new RuntimeException("Bir akilli sen misin? Cakaaal.");
+        if ( ! hand.contains(card) ) {
+            throw new RuntimeException("This card is not in your hand: " + card.toString());
         }
         hand.remove(card);
         return card;
+    }
+
+    @Override
+    public void played(int seat, Card card) {
+        bot.played(seat, card);
     }
 
     @Override

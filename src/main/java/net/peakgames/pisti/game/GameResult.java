@@ -1,14 +1,12 @@
 package net.peakgames.pisti.game;
 
-import net.peakgames.pisti.bot.BotDecorator;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
  * Calculates the game result.
  *
- * @see net.peakgames.pisti.bot.BotDecorator
+ * @see BotDecorator
  *
  * @author Peak Games
  */
