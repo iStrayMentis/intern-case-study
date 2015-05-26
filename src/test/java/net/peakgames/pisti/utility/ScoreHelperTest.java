@@ -1,6 +1,8 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.utility;
 
 
+import net.peakgames.pisti.deck.Card;
+import net.peakgames.pisti.utility.ScoreHelper;
 import org.junit.Test;
 
 import java.util.Stack;

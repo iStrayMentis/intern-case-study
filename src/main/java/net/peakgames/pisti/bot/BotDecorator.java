@@ -1,17 +1,18 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.bot;
 
+import net.peakgames.pisti.deck.Card;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BotWrapper implements Bot {
+public class BotDecorator implements Bot {
+
     private Bot bot;
     private int seat;
     private int score = 0;
-
     private List<Card> hand;
 
-    public BotWrapper(int seat, Bot bot) {
+    public BotDecorator(int seat, Bot bot) {
         this.seat = seat;
         this.bot = bot;
     }
@@ -22,9 +23,9 @@ public class BotWrapper implements Bot {
     }
 
     @Override
-    public void dealed(List<Card> hand) {
+    public void dealt(List<Card> hand) {
         this.hand = hand;
-        bot.dealed(new ArrayList<Card>(this.hand));
+        bot.dealt(new ArrayList<Card>(this.hand));
     }
 
     @Override
@@ -46,7 +47,6 @@ public class BotWrapper implements Bot {
     public void collected(int seat, List<Card> cards) {
         bot.collected(seat, cards);
     }
-
 
     public void gameStarted(List<Card> discardPile) {
         bot.gameStarted(this.seat, discardPile);

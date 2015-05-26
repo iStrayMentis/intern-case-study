@@ -1,4 +1,6 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.bot;
+
+import net.peakgames.pisti.deck.Card;
 
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class DummyBot implements  Bot {
     }
 
     @Override
-    public void dealed(List<Card> hand) {
+    public void dealt(List<Card> hand) {
         this.hand = hand;
     }
 

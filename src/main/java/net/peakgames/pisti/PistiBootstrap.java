@@ -1,13 +1,20 @@
 package net.peakgames.pisti;
 
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import net.peakgames.pisti.bot.Bot;
+import net.peakgames.pisti.game.Game;
+import net.peakgames.pisti.game.GameResult;
+import net.peakgames.pisti.game.GameResultAggregator;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Bootstrap the pisti game with given bots and threads and count.
+ *
+ * @author Peak Games
+ */
 public class PistiBootstrap {
 
     public static void main(final String[] args) throws Exception {
@@ -61,7 +68,7 @@ public class PistiBootstrap {
     }
 
     private static void printUsage() {
-        //TODO ilkin
+        //TODO Print the usage
         System.out.println("Usage : ");
     }
 }

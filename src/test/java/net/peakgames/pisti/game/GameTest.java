@@ -1,6 +1,11 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.game;
 
-import junit.framework.TestCase;
+import net.peakgames.pisti.bot.Bot;
+import net.peakgames.pisti.bot.SuperDummyBot;
+import net.peakgames.pisti.deck.Card;
+import net.peakgames.pisti.deck.Deck;
+import net.peakgames.pisti.game.Game;
+import net.peakgames.pisti.game.GameResult;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -131,8 +136,8 @@ public class GameTest {
     }
 
     @Test
-    public void test_game_play() {
-        Bot [] bots = new Bot[4];
+    public void gamePlay() {
+        Bot[] bots = new Bot[4];
         bots[0] = new SuperDummyBot();
         bots[1] = new SuperDummyBot();
         bots[2] = new SuperDummyBot();

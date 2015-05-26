@@ -1,5 +1,10 @@
-package net.peakgames.pisti.utilities;
+package net.peakgames.pisti.utility;
 
+/**
+ * Exchanges any given two elements of an array
+ *
+ * @author Peak Games
+ */
 public class ShuffleHelper {
 
     /**
@@ -10,7 +15,8 @@ public class ShuffleHelper {
      * @param elementTwo Element-2
      * @param <T>
      */
-    private static <T> void exchange(T[] theArray, int elementOne, int elementTwo) {
+    private static <T> void exchange(T[] theArray, int elementOne, int elementTwo)
+    {
         T swap = theArray[elementOne];
         theArray[elementOne] = theArray[elementTwo];
         theArray[elementTwo] = swap;
@@ -21,11 +27,12 @@ public class ShuffleHelper {
      *
      * @param theArray is the Array which will be shuffled.
      */
-    public static <T> void shuffle(T[] theArray) {
+    public static <T> void shuffle(T[] theArray)
+    {
         int N = theArray.length;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++)
+        {
             int r = i + (int) (Math.random() * (N - i));
-            //Exchange two elements.
             exchange(theArray, i, r);
         }
     }

@@ -1,12 +1,22 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.deck;
 
+/**
+ * Card consist of all information (type and value) of a playing card.
+ *
+ * @author Peak Games
+ */
 public class Card {
+
     public static final int ACE = 1;
     public static final int JACK = 11;
     public static final int QUEEN = 12;
     public static final int KING = 13;
+
     public static enum Type {
-        SPADES, HEARTS, DIAMONDS, CLUBS
+        SPADES,
+        HEARTS,
+        DIAMONDS,
+        CLUBS
     }
 
     private final Type type;
@@ -65,4 +75,5 @@ public class Card {
         result = 31 * result + value;
         return result;
     }
+
 }

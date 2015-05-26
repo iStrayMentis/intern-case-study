@@ -1,5 +1,7 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.deck;
 
+import net.peakgames.pisti.deck.Card;
+import net.peakgames.pisti.deck.Deck;
 import org.junit.Assert;
 
 import java.util.HashSet;

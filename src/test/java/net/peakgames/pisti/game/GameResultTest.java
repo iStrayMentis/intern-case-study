@@ -1,5 +1,8 @@
-package net.peakgames.pisti;
+package net.peakgames.pisti.game;
 
+import net.peakgames.pisti.bot.BotDecorator;
+import net.peakgames.pisti.bot.DummyBot;
+import net.peakgames.pisti.game.GameResult;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,7 @@ public class GameResultTest  {
     public void gameResultWithEmptyBots()
     {
         try {
-            new GameResult(new BotWrapper[0]);
+            new GameResult(new BotDecorator[0]);
         } catch (RuntimeException e) {
             assertEquals("Needs some bots to generate game result.", e.getMessage());
         }
@@ -28,7 +31,7 @@ public class GameResultTest  {
     @Test
     public void isWinner()
     {
-        BotWrapper[] bots = generateBots();
+        BotDecorator[] bots = generateBots();
 
         GameResult gameResult = new GameResult(bots);
 
@@ -41,14 +44,14 @@ public class GameResultTest  {
 
     }
 
-    private BotWrapper[] generateBots()
+    private BotDecorator[] generateBots()
     {
-        BotWrapper[] bots = new BotWrapper[4];
+        BotDecorator[] bots = new BotDecorator[4];
 
-        bots[0] = new BotWrapper(0, new DummyBot());
-        bots[1] = new BotWrapper(1, new DummyBot());
-        bots[2] = new BotWrapper(2, new DummyBot());
-        bots[3] = new BotWrapper(3, new DummyBot());
+        bots[0] = new BotDecorator(0, new DummyBot());
+        bots[1] = new BotDecorator(1, new DummyBot());
+        bots[2] = new BotDecorator(2, new DummyBot());
+        bots[3] = new BotDecorator(3, new DummyBot());
 
         bots[0].addScore(8);
         bots[1].addScore(2);
