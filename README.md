@@ -66,10 +66,11 @@
 * [Clone](github-mac://openRepo/https://github.com/peakgames/intern-case-study) or [Download](https://github.com/peakgames/intern-case-study/archive/master.zip) the source code of the application into your local environment.
 * Compile and run the application with your preferred development environment or existing run scripts (see above section).
 * Review the existing code base of the application.
-* Create and introduce a new bot into the application which conforms the [Bot](https://github.com/peakgames/intern-case-study/blob/master/src/main/java/net/peakgames/pisti/bot/Bot.java) interface. (Your bot should be one single class)
+* Create and introduce a new bot into the application which conforms the [Bot](https://github.com/peakgames/intern-case-study/blob/master/src/main/java/net/peakgames/pisti/bot/Bot.java) interface. (Your bot should be one single class).
 * You are not allowed to make any change on the existing code base other than your bot.
+* Send your bot's class via a [pull request](https://help.github.com/articles/using-pull-requests/) to this project or send it to hakansaglam@peakgames.net as mail attachment.
 
 
 ### Case Assessment
-* Your bot will play the game with other group's bots.
+* Your bot will play the game with other groups' bots.
 * Explain your implementation of bot and your understanding of the application for 5-10 minutes.
