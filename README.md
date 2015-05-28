@@ -55,7 +55,7 @@
     * Class Name of Bot 4
 * Code base have two helper run scripts
     * *run-with-maven*: [Maven](https://maven.apache.org/) is used to compile and run the application.
-    * *run-with-java*: [Java Compiler](http://www.oracle.com/technetwork/java/compile-136656.html) is used to compile and run the application.
+    * *run-with-java*: [Java Compiler](http://www.oracle.com/technetwork/java/compile-136656.html) is used to compile and run the application. (This one has two version, one for Mac, one for Windows).
 
 
 ## Expectations
