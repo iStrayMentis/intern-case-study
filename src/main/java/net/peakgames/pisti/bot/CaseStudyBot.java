@@ -44,16 +44,17 @@ public class CaseStudyBot implements Bot {
         danger = false;
         int offset = calculateOffset(card);
         for(int i = 0; i<4; i++){
-            priority.put((i*13+offset)%52, priority.get((i*13+offset)%52) - 1);
+            priority.put((i*13+offset)%52, priority.get((i*13+offset)%52) - 1); // Update priority according to the card played
         }
-        cardPlayed(card);
+        cardPlayed(card); // Mark card as played
         lastDiscardCard = card;
     }
 
     @Override
     public Card play() {
-        if(danger){
-            Card c = determineLeastCard(hand);
+        if(danger){ // If the board is currrently empty and this is the first card that is going to played, try to send to most played card
+            danger = true;
+            Card c = determineMostCard(hand);
             return hand.remove(hand.indexOf(c));
         } else {
             List<Card> sameValue = new ArrayList<Card>();
@@ -65,7 +66,7 @@ public class CaseStudyBot implements Bot {
                 }
             }
 
-            if(!sameValue.isEmpty()){
+            if(!sameValue.isEmpty()){ // If a card valued same with the card at the top of the board exists, try to play it
                 Card c;
                 for(int i = 0; i < sameValue.size(); i++){
                     if(sameValue.get(i).getType() == Card.Type.DIAMONDS || sameValue.get(i).getType() == Card.Type.CLUBS){
@@ -74,7 +75,7 @@ public class CaseStudyBot implements Bot {
                     }
                 }
                 return hand.remove(hand.indexOf(sameValue.get(0)));
-            } else {
+            } else { // If we only have different cards, try to send to least significant card
                 Card c = determineCard(hand);
                 return hand.remove(hand.indexOf(c));
             }
@@ -82,17 +83,17 @@ public class CaseStudyBot implements Bot {
     }
 
     @Override
-    public void collected(int seat, List<Card> cards) {
+    public void collected(int seat, List<Card> cards) { // The board is empty
         danger = true;
     }
 
-    private void cardPlayed(Card c){
+    private void cardPlayed(Card c){ // Mark card as played
         int offset = calculateOffset(c);
         offset += c.getValue();
         cardPlayed[offset-1] = true;
     }
 
-    private int calculateOffset(Card c){
+    private int calculateOffset(Card c){ // Calculate offset of the card in the array
         int offset = 0;
         switch(c.getType()){
             case SPADES:
@@ -111,7 +112,7 @@ public class CaseStudyBot implements Bot {
         return offset;
     }
 
-    private int timesPlayed(Card c){
+    private int timesPlayed(Card c){ // Count the number of times that this card has been played
         int count = 0;
         int value = c.getValue();
         for(int i=0; i<4; i++){
@@ -122,7 +123,7 @@ public class CaseStudyBot implements Bot {
         return count;
     }
 
-    private void initializePriority(){
+    private void initializePriority(){ // Set initial priorities, this can be updated.
         for(int i = 0; i<13; i++){
             priority.put(i, 4);
             priority.put(i+13, 4);
@@ -136,7 +137,7 @@ public class CaseStudyBot implements Bot {
 
     }
 
-    private Card determineCard(List<Card> hand){
+    private Card determineCard(List<Card> hand){ // Determine the least significant card
         Card minCard = hand.get(0);
         int minPriority = 0;
         for(int i = 1; i < hand.size(); i++){
@@ -150,7 +151,7 @@ public class CaseStudyBot implements Bot {
         return minCard;
     }
 
-    private Card determineLeastCard(List<Card> hand){
+    private Card determineMostCard(List<Card> hand){ // Determine the most played card
         Card c;
         int numTimesPlayed;
         c = hand.get(0);
